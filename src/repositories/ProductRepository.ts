@@ -1,8 +1,5 @@
-
 import { connection as database } from '../database/connection';
 import { ICreateProduct } from '../api/dtos/ProductDtos';
-
-//Porque tive que colocar os {} no ICreateProduct???
 
 class ProductRepository {
   async create(params: ICreateProduct): Promise<string | undefined> {
@@ -17,7 +14,7 @@ class ProductRepository {
   }
 
   async list() {
-    return database.select().table('product')
+    return database.select().table('product');
   }
 
   async delete(id:string) {

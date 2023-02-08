@@ -1,11 +1,11 @@
 import { Application, Request, Response } from 'express';
 
 import ProductRoutes from './ProductRoutes';
+import CurrencyRoutes from './CurrencyRoutes';
 
 import { ensureDatabaseConnection } from '../../database/connection';
 
 export default (app: Application) => {
-
   app.get('/', async (req: Request, res: Response) => {
     const dbConnection = await ensureDatabaseConnection();
 
@@ -18,4 +18,5 @@ export default (app: Application) => {
   });
 
   app.use('/product',ProductRoutes)
+  app.use('/currency',CurrencyRoutes)
 };
